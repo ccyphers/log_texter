@@ -65,16 +65,8 @@ module.exports = function(file, filter, cb) {
                     fds[path.basename(file)]['buffer'].length, fds[path.basename(file)].offset);
                 fds[path.basename(file)].offset += fds[path.basename(file)].delta;
                 data = fds[path.basename(file)]['buffer'].toString();
-                //debugger
 
-                allowed = allow_filter(data, filter.includes, filter.excludes);
-                debugger
-                if (allowed) {
-                    debugger
-                    false
-                }
-                if(allowed) {
-                    debugger
+                if (allow_filter(data, filter.includes, filter.excludes)) {
                     if (cb) {
                         cb({data: data, file: file});
                     } else {
